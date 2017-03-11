@@ -690,8 +690,8 @@ static int QEMU_WARN_UNUSED_RESULT update_refcount(BlockDriverState *bs,
 
 #ifdef DEBUG_ALLOC2
     fprintf(stderr, "update_refcount: offset=%" PRId64 " size=%" PRId64
-            " addend=%s%" PRIu64 "\n", offset, length, decrease ? "-" : "",
-            addend);
+            " addend=%s%" PRIu64 " type=%d\n", offset, length, decrease ? "-" : "",
+            addend, type);
 #endif
     if (length < 0) {
         return -EINVAL;

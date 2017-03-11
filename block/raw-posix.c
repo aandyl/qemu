@@ -1013,6 +1013,7 @@ static int translate_err(int err)
 #ifdef CONFIG_FALLOCATE
 static int do_fallocate(int fd, int mode, off_t offset, off_t len)
 {
+    trace_do_fallocate(fd, mode, offset, len);
     do {
         if (fallocate(fd, mode, offset, len) == 0) {
             return 0;

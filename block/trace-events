@@ -57,6 +57,7 @@ qmp_block_stream(void *bs, void *job) "bs %p job %p"
 # block/raw-posix.c
 paio_submit_co(int64_t offset, int count, int type) "offset %"PRId64" count %d type %d"
 paio_submit(void *acb, void *opaque, int64_t offset, int count, int type) "acb %p opaque %p offset %"PRId64" count %d type %d"
+do_fallocate(int fd, int mode, int64_t offset, int64_t len) "fallocate %d mode %d offset %"PRIx64" len %"PRIx64
 
 # block/qcow2.c
 qcow2_writev_start_req(void *co, int64_t offset, int bytes) "co %p offset %" PRIx64 " bytes %d"
@@ -74,6 +75,7 @@ qcow2_handle_alloc(void *co, uint64_t guest_offset, uint64_t host_offset, uint64
 qcow2_do_alloc_clusters_offset(void *co, uint64_t guest_offset, uint64_t host_offset, int nb_clusters) "co %p guest_offset %" PRIx64 " host_offset %" PRIx64 " nb_clusters %d"
 qcow2_cluster_alloc_phys(void *co) "co %p"
 qcow2_cluster_link_l2(void *co, int nb_clusters) "co %p nb_clusters %d"
+qcow2_discard_clusters(void *bs, uint64_t offset, int nbsect, int type, bool full) "discard_clusters offset %"PRIx64" nb %d type %d full %d"
 
 qcow2_l2_allocate(void *bs, int l1_index) "bs %p l1_index %d"
 qcow2_l2_allocate_get_empty(void *bs, int l1_index) "bs %p l1_index %d"

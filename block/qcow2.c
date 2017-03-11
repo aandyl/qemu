@@ -1086,6 +1086,7 @@ static int qcow2_open(BlockDriverState *bs, QDict *options, int flags,
         }
     }
 
+    fprintf(stderr, "flags = %x\n", flags);
     /* Parse driver-specific options */
     ret = qcow2_update_options(bs, options, flags, errp);
     if (ret < 0) {
